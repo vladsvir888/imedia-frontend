@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import { styles, stylesLinter } from './styles';
 import { scripts } from './scripts';
 import { sprites } from './sprites';
+import { twigTemplates } from './twig';
 import { templates } from './templates';
 import { images } from './images';
 import { libsConcatCss, libsConcatJs, libsCss, libsJs } from './libs';
@@ -9,6 +10,7 @@ import { copy } from './copy';
 
 export const watch = (cb) => {
   gulp.watch(['app/images/sprite-icons/**/*.svg'], sprites);
+  gulp.watch('app/{pages,blocks}/**/*.twig', twigTemplates);
   gulp.watch('app/{pages,blocks}/**/*.html', templates);
   gulp.watch('app/{styles,blocks}/**/*.scss', gulp.parallel(styles, stylesLinter));
   gulp.watch('app/{scripts,blocks}/**/*.js', scripts);

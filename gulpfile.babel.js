@@ -3,6 +3,7 @@ import { styles, stylesLinter } from './tasks/styles';
 import { scripts, scriptsLinter } from './tasks/scripts';
 import { sprites } from './tasks/sprites';
 import { templates } from './tasks/templates';
+import { twigTemplates } from './tasks/twig';
 import { images } from './tasks/images';
 import { libsJs, libsCss, libsConcatJs, libsConcatCss } from './tasks/libs';
 import { copy } from './tasks/copy';
@@ -29,6 +30,7 @@ export const dev = gulp.series(
     images,
     scripts,
     templates,
+    twigTemplates,
   ),
   server,
   watch,
@@ -46,6 +48,7 @@ export const build = gulp.parallel(
   images,
   scripts,
   templates,
+  twigTemplates,
   copy,
 );
 
